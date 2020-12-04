@@ -18,13 +18,9 @@ class PostController extends AbstractController
             ->getRepository(Post::class) // on récupère le répository correspondant au Post
             ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
 
-        // si je n'ai pas d'article à cet id là
-        if(!$post) {
-            // alors je retourne "Pas d'article"
-            return new Response('Pas d\'article.');
-        }
-
         // dans le cas contraire j'affiche l'article
-        return new Response('Mon article : <h1>'.$post->getTitle().'</h1>');
+        return $this->render('singlePost.html.twig', [
+            'post' => $post
+        ]);
     }
 }

@@ -1,0 +1,10 @@
+<html>
+  <body>
+    {% if post %}
+      <h1>{{ post.title }}</h1>
+      <article>{{ post.text }}</article>
+    {% else %}
+      Pas d'article.
+    {% endif %}
+  </body>
+</html>
