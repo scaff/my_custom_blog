@@ -13,11 +13,8 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post")
      */
-    public function index($id, PostRepository $postRepository): Response
+    public function index($id, Post $post): Response
     {
-        $post = $postRepository // on récupère le répository correspondant au Post
-            ->find($id); // on récupère le post dont l'id correspond à l'id passé en URL
-
         // dans le cas contraire j'affiche l'article
         return $this->render('singlePost.html.twig', [
             'post' => $post
