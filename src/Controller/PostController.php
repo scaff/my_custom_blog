@@ -13,7 +13,7 @@ class PostController extends AbstractController
     /**
      * @Route("/post/{id}", name="post")
      */
-    public function index($id, Post $post): Response
+    public function showSinglePost($id, Post $post): Response
     {
         // dans le cas contraire j'affiche l'article
         return $this->render('singlePost.html.twig', [
